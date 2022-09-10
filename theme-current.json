@@ -33,7 +33,14 @@
           "foreground": "#ffffff",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "template": "\uf85a CPU: {{ round .PhysicalPercentUsed .Precision }}% | ",
+          "template": "\uf85a MEM: {{ round .PhysicalPercentUsed .Precision }}% | ",
+          "type": "sysinfo"
+        },
+        {
+          "background": "#eb5b51",
+          "foreground": "#ffffff",
+          "style": "diamond",
+          "template": "{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB \uf85a ",
           "trailing_diamond": "<transparent,#EB5B51>\ue0b2</>",
           "type": "sysinfo"
         },
