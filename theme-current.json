@@ -16,7 +16,6 @@
           },
           "style": "diamond",
           "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}",
-          "trailing_diamond": "<transparent,#FEF5ED>\ue0b2</>",
           "type": "os"
         },
         {
@@ -25,7 +24,6 @@
           "leading_diamond": "\ue0b2",
           "style": "diamond",
           "template": "\uf489 {{ .Name }}",
-          "trailing_diamond": "<transparent,#FEF5ED>\ue0b2</>",
           "type": "shell"
         },
         {
@@ -41,7 +39,6 @@
           "foreground": "#ffffff",
           "style": "diamond",
           "template": "{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB \uf85a ",
-          "trailing_diamond": "<transparent,#EB5B51>\ue0b2</>",
           "type": "sysinfo"
         },
         {
