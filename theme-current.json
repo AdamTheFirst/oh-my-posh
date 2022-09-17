@@ -7,7 +7,7 @@
       "segments": [
         {
           "foreground": "#ed8e63",
-          "leading_diamond": "<#ff70a6> \ue200 </>",
+          "leading_diamond": "<#4d916e> \ue200 </>",
           "properties": {
             "display_host": true
           },
@@ -80,8 +80,8 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#D9EF93",
-          "leading_diamond": "<#00c7fc> \ue285 </><#ed8e63>{</>",
+          "foreground": "#efca93",
+          "leading_diamond": "<#b88e50> \ue285 </><#ed8e63>{</>",
           "properties": {
             "folder_icon": "\uf07b",
             "folder_separator_icon": "\uf9e0",
