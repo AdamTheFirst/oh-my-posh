@@ -1,0 +1,124 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+      {
+        "alignment": "left",
+        "segments": [
+          {
+            "style": "plain",
+            "template": "\u256d\u2500[<#A3BE8C>{{ .UserName }}</><#EBCB8B> on </><#81A1C1>{{ .CurrentDate | date \"Mon\" }}</> at <#8FBCBB>{{ .CurrentDate | date \"15:04 PM\" }}</>]\u2500",
+            "type": "session"
+          },
+          {
+            "foreground": "#D08770",
+            "style": "plain",
+            "template": "<#E5E9F0>[</>{{ .Path }}<#E5E9F0>]</>",
+            "type": "path"
+          },
+          {
+            "foreground": "#BF616A",
+            "style": "plain",
+            "template": "<#E5E9F0>\u2500(</>#<#E5E9F0>)</>",
+            "type": "root"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "right",
+        "segments": [
+          {
+            "foreground": "#D08770",
+            "properties": {
+              "fetch_package_manager": true,
+              "npm_icon": " <#BF616A>\ue5fa</> ",
+              "yarn_icon": " <#81A1C1>\ue6a7</>"
+            },
+            "style": "plain",
+            "template": "<#E5E9F0>(</>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}<#E5E9F0>)</>",
+            "type": "node"
+          },
+          {
+            "foreground": "#B48EAD",
+            "style": "plain",
+            "template": "<#E5E9F0>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#E5E9F0>)</>",
+            "type": "python"
+          },
+          {
+            "foreground": "#A3BE8C",
+            "style": "plain",
+            "template": "<#E5E9F0>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#E5E9F0>)</>",
+            "type": "git"
+          },
+          {
+            "foreground": "#BF616A",
+            "style": "plain",
+            "template": "<#E5E9F0>(</>{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#E5E9F0>)</>",
+            "type": "dotnet"
+          },
+          {
+            "foreground": "#88C0D0",
+            "style": "plain",
+            "template": "<#E5E9F0>(</>{{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }}<#E5E9F0>)</>",
+            "type": "aws"
+          },
+          {
+            "foreground": "#D8DEE9",
+            "style": "plain",
+            "properties": {
+              "linux": "<#E5E9F0>\ue27f</>",
+              "macos": "<#E5E9F0>\ue27f</>",
+              "windows": "<#E5E9F0>\ue27f</>"
+            },
+            "template": "<#E5E9F0>(</>{{ if .WSL }}WSL at {{ end }}{{ .Icon }}<#E5E9F0>)\u2500</>",
+            "type": "os"
+          },
+          {
+            "foreground": "#B48EAD",
+            "properties": {
+              "time_format": "_2,15:04"
+            },
+            "style": "plain",
+            "template": "<#E5E9F0>[</>\uf073{{ .CurrentDate | date .Format }}<#E5E9F0>]</>",
+            "type": "time"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "newline": true,
+        "segments": [
+          {
+            "style": "plain",
+            "template": "\u2570\u2500",
+            "type": "text"
+          },
+          {
+            "foreground": "#EBCB8B",
+            "properties": {
+              "branch_icon": "\ue725 ",
+              "fetch_status": true,
+              "fetch_upstream_icon": true
+            },
+            "style": "plain",
+            "template": "<#E5E9F0>[</>{{ .HEAD }}{{ if .Staging.Changed }}<#A3BE8C> \u25cf {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<#D08770> \u25cf {{ .Working.String }}</>{{ end }}<#E5E9F0>]-</>",
+            "type": "git"
+          },
+          {
+            "foreground": "#EBCB8B",
+            "foreground_templates": ["{{ if gt .Code 0 }}#BF616A{{ end }}"],
+            "properties": {
+              "always_enabled": true
+            },
+            "style": "plain",
+            "template": "\ue285\ueb9e ",
+            "type": "status"
+          }
+        ],
+        "type": "prompt"
+      }
+    ],
+    "version": 3
+  }
+  
