@@ -1,130 +1,170 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "palette": {
-      "white": "#f7f7f7",
-      "black": "#111111"
-    },
     "blocks": [
       {
-        "type": "prompt",
         "alignment": "left",
-        "newline": true,
         "segments": [
           {
-            "background": "transparent",
-            "foreground": "p:white",
             "style": "plain",
-            "template": "\u250c",
-            "type": "text"
-          },
-          {
-            "background": "#464646",
-            "foreground": "p:white",
-            "properties": {
-              "windows": "\ue62a",
-              "linux": "\uf17c",
-              "ubuntu": "\uf31b",
-              "macos": "\uf179"
-            },
-            "style": "plain",
-            "template": " {{.Icon}}{{if .WSL}} (WSL){{end}}\u2800",
-            "type": "os"
-          },
-          {
-            "background": "p:white",
-            "foreground": "p:black",
-            "style": "plain",
-            "template": " \uf489 {{.Name}}\u2800",
-            "type": "shell"
-          },
-          {
-            "background": "#ffe093",
-            "foreground": "p:black",
-            "style": "plain",
-            "template": " \uf2c0 {{.HostName}}\ue0bd{{.UserName}}\u2800",
+            "template": "\u256d\u2500[<#FFB6C1>{{ .UserName }}</><#FF91A4>@</><#B5EAD7>{{ .HostName }}</>]\u2500",
             "type": "session"
           },
           {
-            "background": "#ffffd6",
-            "foreground": "p:black",
-            "properties": {
-              "branch_icon": " \ue0a0 "
-            },
+            "foreground": "#A7C7E7",
             "style": "plain",
-            "template": "{{.HEAD}}\u2800",
-            "type": "git"
+            "template": "<#EDE7F6>[</>{{ .Path }}<#EDE7F6>]</>",
+            "type": "path"
+          },
+          {
+            "foreground": "#FDCB9E",
+            "style": "plain",
+            "template": "<#EDE7F6>\u2500(</>#<#EDE7F6>)</>",
+            "type": "root"
           }
-        ]
+        ],
+        "type": "prompt"
       },
       {
-        "type": "prompt",
         "alignment": "right",
         "segments": [
           {
-            "background": "transparent",
-            "foreground": "#b3ffde",
+            "foreground": "#88D8B0",
             "properties": {
-              "style": "austin",
-              "threshold": 0
+              "fetch_package_manager": true,
+              "npm_icon": " <#F4A261>\ue5fa</> ",
+              "yarn_icon": " <#669BBC>\ue6a7</>"
             },
             "style": "plain",
-            "template": "{{.FormattedMs}}",
-            "type": "executiontime"
+            "template": "<#EDE7F6>(</>{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}<#EDE7F6>)</>",
+            "type": "node"
           },
           {
-            "background": "transparent",
-            "foreground": "#b3ffde",
+            "foreground": "#F7B2B7",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "python"
+          },
+          {
+            "foreground": "#B39DDB",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "java"
+          },
+          {
+            "foreground": "#80C4ED",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "dotnet"
+          },
+          {
+            "foreground": "#E6A57E",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "go"
+          },
+          {
+            "foreground": "#D3A6D6",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "rust"
+          },
+          {
+            "foreground": "#F7CAC9",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "ruby"
+          },
+          {
+            "foreground": "#B2D8D8",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#EDE7F6>)</>",
+            "type": "nx"
+          },
+          {
+            "foreground": "#D4A5A5",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }}<#EDE7F6>)</>",
+            "type": "aws"
+          },
+          {
+            "foreground": "#B2A4D4",
+            "style": "plain",
+            "template": "<#EDE7F6>(</>{{ .Context }}{{ if .Namespace }} :: {{ .Namespace }}{{ end }}<#EDE7F6>)</>",
+            "type": "kubectl"
+          },
+          {
+            "foreground": "#FFD3B5",
+            "style": "plain",
             "properties": {
-              "time_format": "02/01/06 15:04"
+              "linux": "<#EDE7F6>\ue27f</>",
+              "macos": "<#EDE7F6>\ue27f</>",
+              "windows": "<#EDE7F6>\ue27f</>"
+            },
+            "template": "<#EDE7F6>(</>{{ if .WSL }}WSL at {{ end }}{{ .Icon }}<#EDE7F6>)\u2500</>",
+            "type": "os"
+          },
+          {
+            "foreground": "#A1C181",
+            "foreground_templates": [
+              "{{if eq \"Charging\" .State.String}}#88D8B0{{end}}",
+              "{{if eq \"Discharging\" .State.String}}#FFDAC1{{end}}",
+              "{{if eq \"Full\" .State.String}}#A7C7E7{{end}}"
+            ],
+            "properties": {
+              "charged_icon": "\uf240 ",
+              "charging_icon": "\uf1e6 ",
+              "discharging_icon": "\ue234 "
             },
             "style": "plain",
-            "template": "<p:white> · </>{{.CurrentDate | date .Format}}",
+            "template": "<#EDE7F6>[</>{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}%<#EDE7F6>]\u2500</>",
+            "type": "battery"
+          },
+          {
+            "foreground": "#A7BED3",
+            "properties": {
+              "time_format": "_2,15:04"
+            },
+            "style": "plain",
+            "template": "<#EDE7F6>[</>\uf073{{ .CurrentDate | date .Format }}<#EDE7F6>]</>",
             "type": "time"
           }
-        ]
+        ],
+        "type": "prompt"
       },
       {
-        "type": "prompt",
         "alignment": "left",
         "newline": true,
         "segments": [
           {
-            "background": "transparent",
-            "foreground": "p:white",
+            "style": "plain",
+            "template": "\u2570\u2500",
+            "type": "text"
+          },
+          {
+            "foreground": "#F4A261",
             "properties": {
-              "folder_icon": "\uf07b",
-              "folder_separator_template": "<#93d0ff> \u00bb </>",
-              "home_icon": "\ueb06",
-              "style": "agnoster"
+              "branch_icon": "\ue725 ",
+              "fetch_status": true,
+              "fetch_upstream_icon": true
             },
             "style": "plain",
-            "template": "<p:white>\u2514</><#93d0ff>[</> {{.Path}} <#93d0ff>]</>",
-            "type": "path"
-          }
-        ]
-      },
-      {
-        "type": "prompt",
-        "alignment": "left",
-        "newline": true,
-        "segments": [
+            "template": "<#EDE7F6>[</>{{ .HEAD }}{{ if .Staging.Changed }}<#A1C181> \u25cf {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<#FFDAC1> \u25cf {{ .Working.String }}</>{{ end }}<#EDE7F6>]-</>",
+            "type": "git"
+          },
           {
-            "background": "transparent",
-            "foreground": "#81ff91",
-            "foreground_templates": [
-              "{{if gt .Code 0}}#ff3030{{end}}"
-            ],
+            "foreground": "#F7CAC9",
+            "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
             "properties": {
               "always_enabled": true
             },
             "style": "plain",
-            "template": "\u276f",
+            "template": "\ue285\ueb9e ",
             "type": "status"
           }
-        ]
+        ],
+        "type": "prompt"
       }
     ],
-    "console_title_template": "{{if .Root}}[root] {{end}}{{.Shell}} in <{{.Folder}}>",
-    "final_space": true,
     "version": 3
   }
+  
